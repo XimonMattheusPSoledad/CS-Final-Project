@@ -1,5 +1,5 @@
-This is a Laboratory on Modules 2 to 5
+This is a Laboratory on Module 7
 
-The topics covered in this activity are everything except for the topics in module 1
+The topics covered in this activity are everything
 
 (https://github.com/XimonMattheusPSoledad/CS-Final-Project/tree/main)
