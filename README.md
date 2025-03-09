@@ -1,5 +1,1 @@
-This is a Laboratory on Modules 9 and 10.
-
-The topics covered in this activity are everything
-
-(https://github.com/XimonMattheusPSoledad/CS-Final-Project/tree/main)
+The quiz operates by iterating through an array of questions, displaying one at a time while allowing users to select an answer. Each selection is stored in an array called userAnswers, ensuring that previous responses are remembered when navigating between questions. Navigation is controlled by event listeners attached to the "Next" and "Previous" buttons, enabling users to move forward and backward while modifying their answers if needed. When the user submits the quiz, a loop iterates over the userAnswers array, comparing each response to the correct answer using a switch-case statement. Based on this comparison, the interface applies color-coded feedback, highlighting correct answers in green and incorrect ones in red while displaying the correct response where necessary. Finally, the user's total score is calculated and dynamically injected into the DOM, providing a clear and interactive result summary.
