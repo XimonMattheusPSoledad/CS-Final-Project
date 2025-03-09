@@ -1,4 +1,4 @@
-This is a Laboratory on Module 7
+This is a Laboratory on Modules 9 and 10.
 
 The topics covered in this activity are everything
 
