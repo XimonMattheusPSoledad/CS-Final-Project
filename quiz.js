@@ -28,13 +28,13 @@ document.addEventListener("DOMContentLoaded", function () {
     ];
 
     let currentQuestionIndex = 0;
-    let score = 0;
+    let userAnswers = new Array(questions.length).fill(null); // Store user answers
 
     const quizContainer = document.getElementById("quiz-container");
     const questionElement = document.getElementById("question");
     const optionsElement = document.getElementById("options");
     const nextButton = document.getElementById("next-btn");
-    const resultElement = document.getElementById("result");
+    const prevButton = document.getElementById("prev-btn");
 
     function displayQuestion() {
         const currentQuestion = questions[currentQuestionIndex];
@@ -45,41 +45,76 @@ document.addEventListener("DOMContentLoaded", function () {
             const button = document.createElement("button");
             button.textContent = option;
             button.classList.add("option-btn");
-            button.addEventListener("click", () => checkAnswer(option));
+
+            // Highlight previously selected answer
+            if (userAnswers[currentQuestionIndex] === option) {
+                button.classList.add("selected");
+            }
+
+            button.addEventListener("click", () => selectAnswer(option));
             optionsElement.appendChild(button);
         });
+
+        // Update button visibility
+        prevButton.style.display = currentQuestionIndex > 0 ? "block" : "none";
+        nextButton.textContent = currentQuestionIndex === questions.length - 1 ? "Submit" : "Next";
+        nextButton.style.display = userAnswers[currentQuestionIndex] ? "block" : "none";
     }
 
-    function checkAnswer(selectedOption) {
-        const correctAnswer = questions[currentQuestionIndex].correct;
+    function selectAnswer(selectedOption) {
+        userAnswers[currentQuestionIndex] = selectedOption;
 
-        switch (selectedOption) {
-            case correctAnswer:
-                score++;
-                resultElement.textContent = "Correct!";
-                resultElement.style.color = "green";
-                break;
-            default:
-                resultElement.textContent = `Wrong! The correct answer is: ${correctAnswer}`;
-                resultElement.style.color = "red";
-                break;
-        }
+        // Update UI: Remove previous selection and highlight new one
+        document.querySelectorAll(".option-btn").forEach((btn) => {
+            btn.classList.remove("selected");
+            if (btn.textContent === selectedOption) {
+                btn.classList.add("selected");
+            }
+        });
 
-        nextButton.style.display = "block";
+        nextButton.style.display = "block"; // Show "Next" button when an option is selected
     }
 
     nextButton.addEventListener("click", () => {
-        currentQuestionIndex++;
-
-        if (currentQuestionIndex < questions.length) {
-            resultElement.textContent = "";
-            nextButton.style.display = "none";
+        if (currentQuestionIndex < questions.length - 1) {
+            currentQuestionIndex++;
             displayQuestion();
         } else {
-            quizContainer.innerHTML = `<h2>Quiz Completed!</h2>
-                                       <p>You scored ${score} out of ${questions.length}.</p>`;
+            displayResults();
         }
     });
+
+    prevButton.addEventListener("click", () => {
+        if (currentQuestionIndex > 0) {
+            currentQuestionIndex--;
+            displayQuestion();
+        }
+    });
+
+    function displayResults() {
+        let score = 0;
+        quizContainer.innerHTML = `<h2>Quiz Completed!</h2>`;
+
+        questions.forEach((q, index) => {
+            const userAnswer = userAnswers[index];
+            const correctAnswer = q.correct;
+            const isCorrect = userAnswer === correctAnswer;
+            if (isCorrect) score++;
+
+            let resultItem = document.createElement("div");
+            resultItem.classList.add("result-item");
+            resultItem.innerHTML = `
+                <p>${index + 1}. ${q.question}</p>
+                <p>Your answer: <span class="${isCorrect ? "correct" : "incorrect"}">${userAnswer || "No answer"}</span></p>
+                ${!isCorrect ? `<p>Correct answer: <span class="correct">${correctAnswer}</span></p>` : ""}
+            `;
+            quizContainer.appendChild(resultItem);
+        });
+
+        let finalScore = document.createElement("p");
+        finalScore.innerHTML = `<strong>Your score: ${score} out of ${questions.length}</strong>`;
+        quizContainer.appendChild(finalScore);
+    }
 
     displayQuestion();
 });

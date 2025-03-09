@@ -168,6 +168,45 @@ p:hover{
     100% {color: rgb(72, 255, 0);}
   }
 
+  .option-btn {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    background-color: #f8f8f8;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.option-btn:hover {
+    background-color: #ddd;
+}
+
+.option-btn.selected {
+    background-color: #90EE90;
+    border-color: #4CAF50;
+}
+
+.correct {
+    color: green;
+    font-weight: bold;
+}
+
+.incorrect {
+    color: red;
+    font-weight: bold;
+}
+
+.result-item {
+    background-color: #f8f8f8;
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+
   #me{
     text-align:center;
   }
