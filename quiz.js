@@ -28,7 +28,7 @@ document.addEventListener("DOMContentLoaded", function () {
     ];
 
     let currentQuestionIndex = 0;
-    let userAnswers = new Array(questions.length).fill(null); // Store user answers
+    let userAnswers = new Array(questions.length).fill(null);
 
     const quizContainer = document.getElementById("quiz-container");
     const questionElement = document.getElementById("question");
@@ -46,7 +46,7 @@ document.addEventListener("DOMContentLoaded", function () {
             button.textContent = option;
             button.classList.add("option-btn");
 
-            // Highlight previously selected answer
+           
             if (userAnswers[currentQuestionIndex] === option) {
                 button.classList.add("selected");
             }
@@ -55,7 +55,7 @@ document.addEventListener("DOMContentLoaded", function () {
             optionsElement.appendChild(button);
         });
 
-        // Update button visibility
+       
         prevButton.style.display = currentQuestionIndex > 0 ? "block" : "none";
         nextButton.textContent = currentQuestionIndex === questions.length - 1 ? "Submit" : "Next";
         nextButton.style.display = userAnswers[currentQuestionIndex] ? "block" : "none";
@@ -64,7 +64,7 @@ document.addEventListener("DOMContentLoaded", function () {
     function selectAnswer(selectedOption) {
         userAnswers[currentQuestionIndex] = selectedOption;
 
-        // Update UI: Remove previous selection and highlight new one
+        
         document.querySelectorAll(".option-btn").forEach((btn) => {
             btn.classList.remove("selected");
             if (btn.textContent === selectedOption) {
