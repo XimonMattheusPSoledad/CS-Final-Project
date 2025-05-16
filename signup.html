@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Climate Control – Sign Up</title>
+  <link rel="stylesheet" href="log.css" />
+</head>
+<body>
+  <div class="topnav">
+    <nav>
+    <a href="climate-control.html">HOME</a>
+    <a href="about.html">ABOUT</a>
+    <a href="quiz.html">QUIZ</a>
+    <a href="leamore.html">LEARN MORE</a>
+    <a href="similar-sources.html">SIMILAR SOURCES</a>
+    <a class="active" href="signup.html">JOIN US</a>
+</nav>  
+</div>
+  <img id="logo" src="images/logo.png" width="630px" height="630px">
+
+
+  <div class="container">
+    <header>
+      <h1> Climate Control</h1>
+      <p class="tagline">“Empower the Planet, Empower Yourself”</p>
+    </header>
+
+    <form id="signupForm" novalidate>
+      <div class="field">
+        <label for="firstName">First Name *</label>
+        <input type="text" id="firstName" />
+        <span class="error" id="err-firstName"></span>
+      </div>
+
+      <div class="field">
+        <label for="lastName">Last Name *</label>
+        <input type="text" id="lastName" />
+        <span class="error" id="err-lastName"></span>
+      </div>
+
+      <div class="field">
+        <label>Sex *</label>
+        <div class="radio-group">
+          <label><input type="radio" name="sex" value="Male" /> Male</label>
+          <label><input type="radio" name="sex" value="Female" /> Female</label>
+          <label><input type="radio" name="sex" value="Prefer not to say" /> Prefer not to say</label>
+        </div>
+        <span class="error" id="err-sex"></span>
+      </div>
+
+      <div class="field">
+        <label for="email">Email Address *</label>
+        <input type="email" id="email" />
+        <span class="error" id="err-email"></span>
+      </div>
+
+      <div class="field">
+        <label for="password">Password *</label>
+        <input type="password" id="password" />
+        <span class="error" id="err-password"></span>
+      </div>
+
+      <div class="field">
+        <label for="contact">Contact Number</label>
+        <input type="text" id="contact" />
+      </div>
+
+      <div class="field">
+        <label for="support">Why you’re supporting our campaign *</label>
+        <textarea id="support" rows="4"></textarea>
+        <span class="error" id="err-support"></span>
+      </div>
+
+      <button type="submit">Join the Movement</button>
+    </form>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const form = document.getElementById('signupForm');
+      form.addEventListener('submit', e => {
+        e.preventDefault();
+        let valid = true;
+
+        // Clear previous errors
+        document.querySelectorAll('.error').forEach(el => el.textContent = '');
+
+        // Required text fields
+        ['firstName', 'lastName', 'email', 'password', 'support'].forEach(id => {
+          const el = document.getElementById(id);
+          if (!el.value.trim()) {
+            document.getElementById(`err-${id}`).textContent = 'required';
+            valid = false;
+          }
+        });
+
+        // Radio field for sex
+        const sexChoice = document.querySelector('input[name="sex"]:checked');
+        if (!sexChoice) {
+          document.getElementById('err-sex').textContent = 'required';
+          valid = false;
+        }
+
+        if (!valid) return;
+
+        const user = {
+          firstName: document.getElementById('firstName').value.trim(),
+          lastName:  document.getElementById('lastName').value.trim(),
+          sex:       sexChoice.value,
+          email:     document.getElementById('email').value.trim(),
+          password:  document.getElementById('password').value,
+          contact:   document.getElementById('contact').value.trim(),
+          support:   document.getElementById('support').value.trim()
+        };
+
+        localStorage.setItem('climateUser', JSON.stringify(user));
+        window.location.href = 'profile.html';
+      });
+    });
+  </script>
+</body>
+</html>

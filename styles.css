@@ -1,0 +1,222 @@
+.pics{
+    margin-top: 10px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    margin-left: 24%;
+}
+
+.pics:hover{
+    transform:scale(1.1);
+}
+
+#effects{
+    margin-top: 10px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    margin-left: 22%;
+    
+}
+
+.text{
+    margin-top: 10px;
+    margin-right: 22%;
+    margin-left: 22%;
+    font-family:sans-serif;
+    font-size: 20px;
+    text-align:justify;
+    padding-right: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    padding-top: 10px;
+
+    
+}
+
+#logo{ 
+    width:100px;
+    height:100px;
+    position:absolute;
+    transition: width 3s, height 3s;
+}
+
+#logo:hover{
+    width: 25%;
+    height: 50%;
+}
+
+.title{
+    text-align:center;
+}
+
+ul{
+    list-style-type:none;
+    margin:0;
+    padding:0;
+}
+
+li {
+    float:left;
+}
+
+.topnav {
+    background-color: #333;
+    color:#ddd;
+    overflow: hidden;
+  }
+
+  .topnav a {
+    float: left;
+    color: #ddd;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+  }
+  
+  .topnav a:hover{
+    background-color: #ddd;
+    color:black;
+  }
+  
+  .topnav a.active {
+    background-color: #04AA6D;
+    color: white;
+  }
+
+#start {
+    margin-top: 10px;
+    margin-right: 305px;
+    margin-left: 22%;
+    font-family:sans-serif;
+    font-size: 20px;
+    text-align:justify;
+    padding-right: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    padding-top: 10px;
+}
+
+#amid{
+    margin-top: 10px;
+    margin-right: 305px;
+    margin-left: 25%;
+    font-family:sans-serif;
+    font-size: 20px;
+    text-align:justify;
+    padding-right: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    padding-top: 10px;
+}
+
+#aend{
+    margin-top: 10px;
+    margin-right: 305px;
+    margin-left: 25%;
+    font-family:sans-serif;
+    font-size: 20px;
+    text-align:justify;
+    padding-right: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    padding-top: 10px;
+}
+
+#about {
+    margin-top: 10px;
+    margin-right: 305px;
+    margin-left: 25%;
+    font-family:sans-serif;
+    font-size: 20px;
+    text-align:justify;
+    padding-right: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    padding-top: 10px;
+}
+
+#how{
+    text-align:center;
+}
+
+
+
+#vid{
+    margin-right: 5%;
+    margin-left: 22%;
+    font-family:sans-serif;
+    font-size: 20px;
+    padding:10px;
+}
+
+body{
+    background-color:rgb(255, 255, 255);
+}
+#bike {
+    text-align: center;
+}
+
+p:hover{
+        animation-name: example;
+        animation-duration: 15s;
+}
+
+@keyframes example {
+    0%   {color: rgba(255, 0, 0, 0.833);}
+    25%  {color: rgba(255, 153, 0, 0.793);}
+    50%  {color:rgba(225, 255, 0, 0.786);}
+    100% {color: rgb(72, 255, 0);}
+  }
+
+  .option-btn {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    background-color: #f8f8f8;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.option-btn:hover {
+    background-color: #ddd;
+}
+
+.option-btn.selected {
+    background-color: #90EE90;
+    border-color: #4CAF50;
+}
+
+.correct {
+    color: green;
+    font-weight: bold;
+}
+
+.incorrect {
+    color: red;
+    font-weight: bold;
+}
+
+.result-item {
+    background-color: #f8f8f8;
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+
+  #me{
+    text-align:center;
+  }
+
+  .vid{
+    margin-left:25%;
+  }
+
+  #quiz-container {
+    text-align: center;
+    margin: auto;
+    max-width: 600px;
+}
